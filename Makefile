@@ -5,7 +5,7 @@ run:
 	go run .
 
 deploy: build install-man install-completion
-	cp hrc /Users/msjurseth/.local/bin/
+	cp hrc ~/.local/bin/
 
 install-man:
 	install -d /usr/local/share/man/man1
