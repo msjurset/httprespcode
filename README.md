@@ -35,29 +35,55 @@ This builds the binary, installs the man page, installs zsh completions, and cop
 ### Single Lookup
 
 ```bash
-# Look up a status code
-hrc 200
 hrc 404
-hrc 503
+```
+
+```
+404: Not Found — Not Found: The requested resource could not be found but may be
+available in the future. Subsequent requests by the client are permissible.
 ```
 
 ### Verbose Mode
 
 ```bash
-# Show extended details for a status code
 hrc -v 404
-hrc -v 503
 ```
+
+```
+404: Not Found — Not Found: The requested resource could not be found but may be
+available in the future. Subsequent requests by the client are permissible.
+
+───
+
+Common causes: Typo in the URL, deleted resource, incorrect route configuration,
+undeployed endpoint, or missing file on disk.
+
+Real-world usage: The most recognized HTTP error. Returned when a URL doesn't map
+to any resource. In REST APIs, returned for GET/PUT/DELETE on a resource ID that
+doesn't exist. Some security-conscious APIs return 404 instead of 403 to hide the
+existence of resources from unauthorized users.
+
+Related codes: 410 Gone (resource existed but was permanently removed — use this
+when you know it's intentional), 405 Method Not Allowed (URL exists but method is
+wrong).
+
+Troubleshooting: Check for URL typos, verify the resource exists, check route
+configuration, and ensure the server/application is properly deployed.
+
+RFC: RFC 7231, Section 6.5.4.
+```
+
+Output is color-coded in the terminal: status lines are bold and colored by class (2xx green, 3xx yellow, 4xx red, 5xx magenta), section labels are highlighted, and descriptions are dimmed.
 
 ### Interactive Mode
 
 ```bash
-# Enter interactive mode
 hrc
+```
 
+```
 Enter HTTP status code (or 'q' to quit): 200
-200: OK
-OK: Standard response for successful HTTP requests...
+200: OK — OK: Standard response for successful HTTP requests...
 
 Enter HTTP status code (or 'q' to quit): q
 ```
