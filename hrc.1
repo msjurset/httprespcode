@@ -1,0 +1,71 @@
+.TH HRC 1 "February 2026" "version 1.0.0" "User Commands"
+.SH NAME
+hrc \- HTTP response code lookup tool
+.SH SYNOPSIS
+.B hrc
+.RB [ \-v ]
+.I code
+.br
+.B hrc
+.RB [ \-v ]
+.SH DESCRIPTION
+.B hrc
+is a command-line tool for looking up HTTP response status codes. Given a numeric status code, it displays the standard status text and a detailed description including the relevant RFCs and usage context.
+.PP
+When invoked with a status code argument,
+.B hrc
+prints the information and exits. When invoked without arguments, it enters an interactive mode where you can look up multiple codes until you type 'q' to quit.
+.SH OPTIONS
+.TP
+.B \-v
+Verbose mode. Show extended details for each status code including common causes, real-world usage, related codes, troubleshooting tips, and RFC references.
+.SH EXAMPLES
+.TP
+.B hrc 200
+Look up the 200 OK status code
+.TP
+.B hrc 404
+Look up the 404 Not Found status code
+.TP
+.B hrc 418
+Look up the classic 418 I'm a teapot status code
+.TP
+.B hrc \-v 404
+Look up the 404 Not Found status code with extended details
+.TP
+.B hrc
+Enter interactive mode to look up multiple status codes
+.TP
+.B hrc \-v
+Enter interactive mode with verbose output enabled
+.SH SUPPORTED STATUS CODES
+.SS 1xx Informational
+100, 101, 102, 103
+.SS 2xx Success
+200, 201, 202, 203, 204, 205, 206, 207, 208, 226
+.SS 3xx Redirection
+300, 301, 302, 303, 304, 305, 306, 307, 308
+.SS 4xx Client Error
+400, 401, 402, 403, 404, 405, 406, 407, 408, 409, 410, 411, 412, 413, 414, 415, 416, 417, 418, 421, 422, 423, 424, 425, 426, 428, 429, 431, 451
+.SS 5xx Server Error
+500, 501, 502, 503, 504, 505, 506, 507, 508, 510, 511
+.PP
+Status codes recognized by Go's
+.BR net/http
+package but not in the built-in description table will display the standard status text without a detailed description.
+.SH DIAGNOSTICS
+.TP
+.B Invalid code: \fISTRING\fR
+The input was not a valid integer.
+.TP
+.B Unknown code: \fIN\fR
+The integer is not a recognized HTTP status code.
+.SH SEE ALSO
+.BR curl (1),
+.BR http (1)
+.PP
+RFC 7231 (HTTP/1.1 Semantics and Content), RFC 6585 (Additional HTTP Status Codes), RFC 7725 (451 Unavailable For Legal Reasons)
+.SH AUTHOR
+Built with Claude Code
+.SH COPYRIGHT
+Copyright (c) 2026. MIT License.

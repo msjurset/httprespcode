@@ -1,0 +1,9 @@
+# Compiled binaries
+hrc
+hrc.exe
+
+# Local Claude Code configuration
+CLAUDE.local.md
+
+# Claude Code local data
+.claude/
