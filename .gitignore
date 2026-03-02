@@ -2,8 +2,8 @@
 hrc
 hrc.exe
 
-# Local Claude Code configuration
+# Local configuration
 CLAUDE.local.md
 
-# Claude Code local data
+# Local data
 .claude/

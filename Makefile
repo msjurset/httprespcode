@@ -1,6 +1,9 @@
 build:
 	go build -o hrc .
 
+test:
+	go test -v ./...
+
 run:
 	go run .
 
